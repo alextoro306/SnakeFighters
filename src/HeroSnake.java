@@ -61,6 +61,9 @@ public class HeroSnake {
         this.attack = attack;
     }
 
+    @Override
+    public String toString(){
+        return "Hero name: " + name+"\nHero type: " + type+"\nHero story: " + story+"\nHero age: " + age+"\nHero health: " + health+"\nHero attack: " + attack;
+    }
+    }
 
-
-}
