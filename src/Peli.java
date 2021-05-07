@@ -9,7 +9,7 @@ public class Peli {
         EnemySnake python = new EnemySnake("python", "Snake", "Python tietää mitä haluaa eikä tullut häviämään", 20, 150, 10);
         EnemySnake mamba = new EnemySnake("mamba", "Snake", "Mamba hoitelee vihollisen kuin vihollisen ja jättää vihollisestä vain jäljen jäljelle", 25, 200, 12);
         EnemySnake kingsnake = new EnemySnake("kingsnake", "Snake", "Kuningas käärme on kaikkien käärmeiden kuningas, joka voitti viimeksi suuren taistelun ja on käärmeiden herra", 200, 500, 15);
-        System.out.println("Welcome to SnakeFighters! You are the " + HeroSnake + "And you want to Strangle all the other snakes!");
+        System.out.println("Welcome to SnakeFighters! You are the " + hero + "And you want to Strangle all the other snakes!");
         System.out.println("Type play in any form to start.");
     }
 }
