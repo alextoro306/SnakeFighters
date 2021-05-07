@@ -61,7 +61,7 @@ public class EnemySnake {
     }
     @Override
     public String toString(){
-        return "Enemy name: " + name+"\nEnemy type: " + type+"\nEnemy story: " + story+"\nEnemy story: "
+        return "Enemy name: " + name+"\nEnemy type: " + type+"\nEnemy story: " + story+"\nEnemy age: " + age+"\nEnemy health: " + health+"\nEnemy attack: " + attack@Overr
     }
 
 }
