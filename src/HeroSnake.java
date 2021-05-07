@@ -60,9 +60,7 @@ public class HeroSnake {
     public void setAttack(double attack) {
         this.attack = attack;
     }
-    public void inspect(EnemySnake e){
-        System.out.println(e.toString());
-    }
+
 
 
 }
