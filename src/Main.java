@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        Peli p = new Peli();
+        Game p = new Game();
         p.run();
     }
 }
