@@ -7,13 +7,12 @@ public class HeroSnake {
     ArrayList<EnemySnake> EnemyList = new ArrayList<>();
     Random r = new Random();
     private EnemySnake e;
-    private String name,type,story;
+    private String name, type, story;
     private int age;
-    private double health,attack;
+    private double health, attack;
 
 
-
-    public HeroSnake(String n,String t,String s,int a,double h,double att, ArrayList<EnemySnake>ListEnemy){
+    public HeroSnake(String n, String t, String s, int a, double h, double att, ArrayList<EnemySnake> ListEnemy) {
         this.name = n;
         this.type = t;
         this.story = s;
@@ -26,13 +25,14 @@ public class HeroSnake {
         EnemySnake python = new EnemySnake("python", "Snake", "Python tietää mitä haluaa eikä tullut häviämään", 20, 150, 10);
         EnemySnake mamba = new EnemySnake("mamba", "Snake", "Mamba hoitelee vihollisen kuin vihollisen ja jättää vihollisestä vain jäljen jäljelle", 25, 200, 12);
         EnemySnake kingsnake = new EnemySnake("kingsnake", "Snake", "Kuningas käärme on kaikkien käärmeiden kuningas, joka voitti viimeksi suuren taistelun ja on käärmeiden herra", 200, 500, 15);
-        EnemyList.add (anaconda);
-        EnemyList.add (cobra);
-        EnemyList.add (python);
-        EnemyList.add (mamba);
-        EnemyList.add (kingsnake);
+        EnemyList.add(anaconda);
+        EnemyList.add(cobra);
+        EnemyList.add(python);
+        EnemyList.add(mamba);
+        EnemyList.add(kingsnake);
 
-}
+    }
+
     public ArrayList getEnemies() {
         return EnemyList;
     }
@@ -85,14 +85,14 @@ public class HeroSnake {
         this.attack = attack;
     }
 
-<<<<<<< HEAD
-    public void makeDecision(){
+
+    public void makeDecision() {
         System.out.println("Aloitan pelin");
-=======
-    @Override
-    public String toString(){
-        return "Hero name: " + name+"\nHero type: " + type+"\nHero story: " + story+"\nHero age: " + age+"\nHero health: " + health+"\nHero attack: " + attack;
     }
->>>>>>> 0ba5b8095acdc991b8ef08ebb53ae5b422387b21
+        @Override
+        public String toString(){
+            return "Hero name: " + name + "\nHero type: " + type + "\nHero story: " + story + "\nHero age: " + age + "\nHero health: " + health + "\nHero attack: " + attack;
+        }
     }
+
 
