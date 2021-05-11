@@ -85,9 +85,14 @@ public class HeroSnake {
         this.attack = attack;
     }
 
+<<<<<<< HEAD
     public void makeDecision(){
         System.out.println("Aloitan pelin");
+=======
+    @Override
+    public String toString(){
+        return "Hero name: " + name+"\nHero type: " + type+"\nHero story: " + story+"\nHero age: " + age+"\nHero health: " + health+"\nHero attack: " + attack;
+    }
+>>>>>>> 0ba5b8095acdc991b8ef08ebb53ae5b422387b21
     }
 
-
-}
