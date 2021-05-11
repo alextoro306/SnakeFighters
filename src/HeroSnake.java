@@ -1,10 +1,11 @@
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
-
+import java.util.Scanner;
 
 
 public class HeroSnake {
+    Scanner sc = new Scanner(System.in);
     ArrayList<EnemySnake> EnemyList = new ArrayList<>();
     Random r = new Random();
     private EnemySnake e;
@@ -33,8 +34,26 @@ public class HeroSnake {
         EnemyList.add(kingsnake);
 
     }
-    public void anyButton(){
 
+    public EnemySnake getREnemy(int i) {
+        switch (i){
+            case 0:
+                e = EnemyList.get(0);
+                break;
+            case 1:
+                e = EnemyList.get(1);
+                break;
+            case 2:
+                e = EnemyList.get(2);
+                break;
+            case 3:
+                e = EnemyList.get(3);
+                break;
+            case 4:
+                e = EnemyList.get(4);
+                break;
+        }
+        return e;
     }
 
     public ArrayList getEnemies() {
@@ -91,7 +110,7 @@ public class HeroSnake {
 
 
     public void makeDecision() {
-        System.out.println("You started the game.");
+        System.out.println("How do you want to attack first?");
     }
         @Override
         public String toString(){
