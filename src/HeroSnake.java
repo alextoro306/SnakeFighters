@@ -1,4 +1,4 @@
-import java.lang.reflect.Array;
+
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -22,11 +22,11 @@ public class HeroSnake {
         this.health = h;
         this.attack = att;
         this.EnemyList = ListEnemy;
-        EnemySnake anaconda = new EnemySnake("Anaconda", "Strangler Snake", "A strong strangler snake who fears nothing.", 27, 100, 20);
-        EnemySnake cobra = new EnemySnake("Cobra", "Poisonous Snake", "A peaceful snake, but if you make him angry it will not be fun.", 50, 125, 15);
-        EnemySnake python = new EnemySnake("Python", "Strangler Snake", "Python knows what he came for, and will strangle you.", 20, 150, 14);
-        EnemySnake mamba = new EnemySnake("Mamba", "Poisonous Snake", "Mamba will destroy enemy after enemy, and only leaves a mark.", 25, 200, 12);
-        EnemySnake kingsnake = new EnemySnake("KingSnake", "Mind Control Snake", "The kingsnake is the king of all snakes and has won every fight in its lifetime.", 200, 500, 15);
+        EnemySnake anaconda = new EnemySnake("Anaconda", "Strangler Snake", "A strong strangler snake who fears nothing.", 27, 90, 20);
+        EnemySnake cobra = new EnemySnake("Cobra", "Poisonous Snake", "A peaceful snake, but if you make him angry it will not be fun.", 50, 90, 20);
+        EnemySnake python = new EnemySnake("Python", "Strangler Snake", "Python knows what he came for, and will strangle you.", 20, 150, 20);
+        EnemySnake mamba = new EnemySnake("Mamba", "Poisonous Snake", "Mamba will destroy enemy after enemy, and only leaves a mark.", 25, 200, 20);
+        EnemySnake kingsnake = new EnemySnake("KingSnake", "Mind Control Snake", "The kingsnake is the king of all snakes and has won every fight in its lifetime.", 200, 500, 20);
         EnemyList.add(anaconda);
         EnemyList.add(cobra);
         EnemyList.add(python);
@@ -54,6 +54,10 @@ public class HeroSnake {
                 break;
         }
         return e;
+    }
+
+    public void removeSnake(int n) {
+        EnemyList.remove(n);
     }
 
     public ArrayList getEnemies() {
@@ -108,13 +112,11 @@ public class HeroSnake {
         this.attack = attack;
     }
 
-    public void heroInfo() {
-        System.out.println("How do you want to attack first");
-    }
 
     public void firstAttack(EnemySnake e) {
-        System.out.println("Ouch");
+        System.out.println("Ouch! The snake just dealt 20 damage to you, strike back!");
     }
+
         @Override
         public String toString(){
             return "Hero name: " + name + "\nHero type: " + type + "\nHero story: " + story + "\nHero age: " + age + "\nHero health: " + health + "\nHero attack: " + attack;
