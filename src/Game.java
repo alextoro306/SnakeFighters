@@ -10,10 +10,10 @@ public class Game {
         ArrayList<EnemySnake> list = new ArrayList<>();
         ArrayList<EnemySnake> EnemyList = new ArrayList<>();
         HeroSnake hero = new HeroSnake("HeroSnake", "Snake", "He is an experienced fighter. and can beat almost any enemy.", 18, 300, 35, list);
-        System.out.println("Welcome to SnakeFighters! You are the HeroSnake And you want to Strangle all the other snakes!");
+        System.out.println("Welcome to SnakeFighters! You are the HeroSnake And you want to kill all the other snakes!");
         System.out.println("Type s to start.");
         String push = sc.nextLine();
-        int random = r.nextInt(4);
+        int random = r.nextInt(5);
         EnemySnake e1 = hero.getREnemy(random);
         hero.removeSnake(random);
         if (push.equals("s")) {
@@ -39,11 +39,15 @@ public class Game {
         System.out.println("Type p to play.");
         String play = sc.nextLine();
         if (play.equals("p")) {
-            hero.firstAttack(e1);
+            hero.fightEnemy(e1);
+
         } else {
             System.out.println("You did not type p, try again.");
             run();
         }
+
+
+
         }
     }
 

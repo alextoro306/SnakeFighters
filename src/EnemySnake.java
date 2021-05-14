@@ -60,8 +60,6 @@ public class EnemySnake {
         this.attack = attack;
     }
 
-
-
     @Override
     public String toString(){
         return "Enemy name: " + name+"\nEnemy type: " + type+"\nEnemy story: " + story+"\nEnemy age: " + age+"\nEnemy health: " + health+"\nEnemy attack: " + attack;
