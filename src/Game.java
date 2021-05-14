@@ -21,13 +21,21 @@ public class Game {
         System.out.println("Type c to choose an enemy.");
         String choose = sc.nextLine();
         if (choose.equals("c")) {
-            int random = r.nextInt(5);
+            System.out.println("Here is your hero stats:\n" + hero);
+            System.out.println("");
+            System.out.println("Here is your enemy stats: ");
+            int random = r.nextInt(4);
             System.out.println(hero.getREnemy(random));
+            EnemySnake e1 = hero.getREnemy(random);
+            hero.firstAttack(e1);
+
         }else{
             System.out.println("You did not type c, try again.");
             run();
         }
-        hero.makeDecision();
+
+
+
 
 
 
