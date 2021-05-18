@@ -22,11 +22,11 @@ public class HeroSnake {
         this.health = h;
         this.attack = att;
         this.EnemyList = ListEnemy;
-        EnemySnake anaconda = new EnemySnake("Anaconda", "Strangler Snake", "A strong strangler snake who fears nothing.", 5, 80, 20);
-        EnemySnake cobra = new EnemySnake("Cobra", "Poisonous Snake", "A peaceful snake, but if you make him angry it will not be fun.", 10, 90, 15);
-        EnemySnake python = new EnemySnake("Python", "Strangler Snake", "Python knows what he came for, and will strangle you.", 20, 110, 22);
-        EnemySnake mamba = new EnemySnake("Mamba", "Poisonous Snake", "Mamba will destroy enemy after enemy, and only leaves a mark.", 9, 120, 18);
-        EnemySnake kingsnake = new EnemySnake("KingSnake", "Mind Control Snake", "The kingsnake is the king of all snakes and has won every fight in its lifetime.", 100, 300, 25);
+        EnemySnake anaconda = new EnemySnake("Anaconda", "Strangler Snake", "A strong strangler snake who fears nothing.", 5, 90, 50);
+        EnemySnake cobra = new EnemySnake("Cobra", "Poisonous Snake", "A peaceful snake, but if you make him angry it will not be fun.", 10, 95, 55);
+        EnemySnake python = new EnemySnake("Python", "Strangler Snake", "Python knows what he came for, and will strangle you.", 20, 105, 50);
+        EnemySnake mamba = new EnemySnake("Mamba", "Poisonous Snake", "Mamba will destroy enemy after enemy, and only leaves a mark.", 9, 100, 45);
+        EnemySnake kingsnake = new EnemySnake("KingSnake", "Mind Control Snake", "The kingsnake is the king of all snakes and has won every fight in its lifetime.", 100, 150, 60);
         EnemyList.add(anaconda);
         EnemyList.add(cobra);
         EnemyList.add(python);
@@ -114,16 +114,54 @@ public class HeroSnake {
 
 
     public void fightEnemy(EnemySnake e) {
-        System.out.println("Good job! You just dealt " + attack + " damage to an enemy snake, be careful he is very strong!");
+        System.out.println("Herosnake: Good job! You just dealt " + attack + " damage to an enemy snake, be careful he is very strong!");
         double newHealth = e.getHealth() -getAttack();
         e.setHealth(newHealth);
-        System.out.println("Enemy snake has now " + e.getHealth() + " hp left");
+        System.out.println(e.getName() + " Has now: " + e.getHealth() + " hp left");
 
-        System.out.println("Hahaha " + attack + " Im enemy snake and i just hurt you muhahaha!");
+        System.out.println(e.getName() + ": Hahaha i am the enemy snake and i just hurt you muhahaha!");
         double newHealth2 = getHealth() - e.getAttack();
         setHealth(newHealth2);
-        System.out.println("Hero snake has now " + getHealth() + " hp left");
+        System.out.println("Hero snake has now: " + getHealth() + " hp left");
+
+        System.out.println("Type m to continue the game.");
+        String choose = sc.nextLine();
+        if (choose.equals("m")) {
+
+            System.out.println("Herosnake: Well done! You just dealt " + attack + " damage to an enemy snake, he is now weak!");
+            double newHealth3 = e.getHealth() -getAttack();
+            e.setHealth(newHealth3);
+            System.out.println(e.getName() + ": Has now " + e.getHealth() + " hp left");
+
+            System.out.println(e.getName() + ": You are so noob. I made you alot of damage haha!");
+            double newHealth4 = getHealth() - e.getAttack();
+            setHealth(newHealth4);
+            System.out.println("Hero snake has now: " + getHealth() + " hp left");
+
+        } else {
+            System.out.println("You did not type m, please try again.");
         }
+
+        System.out.println("Type m again to continue the game.");
+        String choose2 = sc.nextLine();
+        if (choose2.equals("m")) {
+
+            System.out.println(e.getName() + ": Easy damage to you i will WIN!");
+            double newHealth5 = getHealth() - e.getAttack();
+            setHealth(newHealth5);
+            System.out.println("Hero snake has now: " + getHealth() + " hp left");
+
+            System.out.println("Herosnake: Very good! You just dealt " + attack + " damage to an enemy snake, he is now VERY weak!");
+            double newHealth6 = e.getHealth() -getAttack();
+            e.setHealth(newHealth6);
+            System.out.println(e.getName() + ": Has now " + e.getHealth() + " hp left");
+
+        } else {
+            System.out.println("You did not type m, please try again.");
+        }
+
+    }
+
 
 
 
