@@ -9,6 +9,7 @@ public class Game {
     public void run() {
         ArrayList<EnemySnake> list = new ArrayList<>();
         ArrayList<EnemySnake> EnemyList = new ArrayList<>();
+        EnemySnake kingsnake = new EnemySnake("KingSnake", "Mind Control Snake", "The kingsnake is the king of all snakes and has won every fight in its lifetime.", 100, 155, 60);
         HeroSnake hero = new HeroSnake("HeroSnake", "Snake", "He is an experienced fighter. and can beat almost any enemy.", 18, 10000, 35, list);
         System.out.println("Welcome to SnakeFighters! You are the HeroSnake And you want to kill all the other snakes!");
         int enemiesKilled = 0;
@@ -74,12 +75,28 @@ public class Game {
             EnemySnake e4 = hero.getREnemy(random4);
             hero.removeSnake(random4);
             if (next3.equals("q")) {
-                System.out.println("Here is your enemy's stats:\n" + e4);
+                System.out.println("Here is your next enemy's stats:\n" + e4);
                 System.out.println("");
                 hero.fightEnemy(e4);
                 enemiesKilled++;
             }
         }
+        System.out.println("Type f, to take on the final boss!");
+        String userInput = sc.nextLine();
+        if(userInput.equals("f")) {
+            System.out.println("Here is your final boss stats:\n" + kingsnake);
+            System.out.println("");
+            hero.fightEnemy(kingsnake);
+            System.out.println("");
+
+
+        }
+        System.out.println("GirlSnake: Hi cutie :3");
+        System.out.println("HeroSnake: Yo whatsup?");
+        System.out.println("GirlSnake: You are so hot do u wanna be my boyfriend <3");
+        System.out.println("Herosnake: Yeah <3");
+        System.out.println("Game: So... HeroSnake found girlfriend and made alot babysnakes with her <333!");
+        System.out.println("Thanks for playing our game (SnakeFighters) \n Have a nice day -Olavi -Alex");
     }
 }
 

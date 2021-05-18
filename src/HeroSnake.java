@@ -1,4 +1,6 @@
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -119,7 +121,7 @@ public class HeroSnake {
         e.setHealth(newHealth);
         System.out.println(e.getName() + ": " + e.getHealth() + " hp left");
 
-        System.out.println(e.getName() + ": Hahaha i am the " + e.getName() +" and i just attacked you!");
+        System.out.println(e.getName() + ": Hahaha i am the shhh... " + e.getName() +" shhhh.. and i just attacked you!");
         double newHealth2 = getHealth() - e.getAttack();
         setHealth(newHealth2);
         System.out.println("Hero snake: " + getHealth() + " hp left");
@@ -133,7 +135,7 @@ public class HeroSnake {
             e.setHealth(newHealth3);
             System.out.println(e.getName() + ": " + e.getHealth() + " hp left");
 
-            System.out.println(e.getName() + ": You are so noob. I dealt a lot of damage to you, you are a dead snake!");
+            System.out.println(e.getName() + ": You are so noob shhh.. I dealt a lot of damage to you shhhh..., you are a dead snake!");
             double newHealth4 = getHealth() - e.getAttack();
             setHealth(newHealth4);
             System.out.println("Hero snake: " + getHealth() + " hp left");
@@ -146,7 +148,7 @@ public class HeroSnake {
         String choose2 = sc.nextLine();
         if (choose2.equals("m")) {
 
-            System.out.println(e.getName() + ": Easy damage to you i will WIN!");
+            System.out.println(e.getName() + ": Easy damage to you i will WIN shhhh..!");
             double newHealth5 = getHealth() - e.getAttack();
             setHealth(newHealth5);
             System.out.println("Hero snake has now: " + getHealth() + " hp left");
@@ -162,7 +164,11 @@ public class HeroSnake {
         if (e.getHealth() == (0)) {
             System.out.println("Great job! You killed the " + e.getName() + " You will now move onto the next enemy, which is chosen randomly.");
         }
-    }
+
+
+
+        }
+
 
 
 
