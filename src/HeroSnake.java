@@ -115,6 +115,16 @@ public class HeroSnake {
         this.attack = attack;
     }
 
+    public boolean checkHealth(){
+        if(health > 0){
+            return true;
+
+        }else{
+            return false;
+        }
+
+
+    }
 
     public void fightEnemy(EnemySnake e) {
         System.out.println("Herosnake: Good job! You just dealt " + attack + " damage to " + e.getName() + ", be careful he is very strong!");
@@ -165,10 +175,7 @@ public class HeroSnake {
         if (e.getHealth() == (0)) {
             System.out.println("Great job! You killed the " + e.getName() + " You will now move onto the next enemy, which is chosen randomly.");
         }
-        while (getHealth()<0) {
-            System.out.println("You died");
-            break;
-        }
+
 
 
 
