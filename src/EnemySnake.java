@@ -12,6 +12,7 @@ public class EnemySnake {
         this.attack = att;
     }
 
+
     public String getName() {
         return name;
     }

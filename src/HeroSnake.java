@@ -53,10 +53,11 @@ public class HeroSnake {
         }
         return e;
     }
+
+
     public int getListSize(ArrayList EnemyList) {
         return EnemyList.size();
     }
-
 
     public void removeSnake(int n) {
         EnemyList.remove(n);
@@ -163,6 +164,10 @@ public class HeroSnake {
         }
         if (e.getHealth() == (0)) {
             System.out.println("Great job! You killed the " + e.getName() + " You will now move onto the next enemy, which is chosen randomly.");
+        }
+        while (getHealth()<0) {
+            System.out.println("You died");
+            break;
         }
 
 
