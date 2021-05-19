@@ -10,7 +10,7 @@ public class Game {
         ArrayList<EnemySnake> list = new ArrayList<>();
         ArrayList<EnemySnake> EnemyList = new ArrayList<>();
         EnemySnake kingsnake = new EnemySnake("KingSnake", "Mind Control Snake", "The kingsnake is the king of all snakes and has won every fight in its lifetime.", 100, 105, 60);
-        HeroSnake hero = new HeroSnake("HeroSnake", "Snake", "He is an experienced fighter. and can beat almost any enemy.", 18, 800, 35, list);
+        HeroSnake hero = new HeroSnake("HeroSnake", "Snake", "He is an experienced fighter. and can beat almost any enemy.", 18, 800, 35, list, false);
         System.out.println("Welcome to SnakeFighters! You are the HeroSnake And you want to kill all the other snakes!");
 
 
@@ -45,6 +45,7 @@ public class Game {
                 String play = sc.nextLine();
                 if (play.equals("p")) {
                     hero.fightEnemy(e1);
+                    hero.setHasFled(false);
                     enemiesKilled++;
 
                 } else {
@@ -60,6 +61,7 @@ public class Game {
                     System.out.println("Here is your enemy's stats:\n" + e2);
                     System.out.println("");
                     hero.fightEnemy(e2);
+                    hero.setHasFled(false);
                     enemiesKilled++;
                 }
                 System.out.println("Type z, to choose the next enemy.");
@@ -71,6 +73,7 @@ public class Game {
                     System.out.println("Here is your enemy's stats:\n" + e3);
                     System.out.println("");
                     hero.fightEnemy(e3);
+                    hero.setHasFled(false);
                     enemiesKilled++;
                 }
                 System.out.println("Type q, to choose the next enemy.");
@@ -82,6 +85,7 @@ public class Game {
                     System.out.println("Here is your next enemy's stats:\n" + e4);
                     System.out.println("");
                     hero.fightEnemy(e4);
+                    hero.setHasFled(false);
                     enemiesKilled++;
                 }
             }
@@ -94,18 +98,24 @@ public class Game {
             System.out.println("Here is your final boss stats:\n" + kingsnake);
             System.out.println("");
             hero.fightEnemy(kingsnake);
+            hero.setHasFled(false);
             System.out.println("");
 
         }
 
 
         System.out.println("GirlSnake: Hi cutie :3");
+        System.out.println();
         System.out.println("HeroSnake: Yo whatsup?");
+        System.out.println();
         System.out.println("GirlSnake: You are so hot do u wanna be my boyfriend <3");
+        System.out.println();
         System.out.println("Herosnake: Yeah <3");
+        System.out.println();
         System.out.println("Game: So... HeroSnake found girlfriend and made alot babysnakes with her <333!");
-
-        System.out.println("Thanks for playing our game (SnakeFighters) \n Have a nice day -Olavi -Alex");
+        System.out.println();
+        System.out.println();
+        System.out.println("Thanks for playing our game (SnakeFighters) \nHave a nice day -Olavi -Alex");
         System.out.println("Game over!");
     }
 

@@ -14,9 +14,10 @@ public class HeroSnake {
     private String name, type, story;
     private int age;
     private double health, attack;
+    private boolean hasFled;
 
 
-    public HeroSnake(String n, String t, String s, int a, double h, double att, ArrayList<EnemySnake> ListEnemy) {
+    public HeroSnake(String n, String t, String s, int a, double h, double att, ArrayList<EnemySnake> ListEnemy, boolean j) {
         this.name = n;
         this.type = t;
         this.story = s;
@@ -24,6 +25,7 @@ public class HeroSnake {
         this.health = h;
         this.attack = att;
         this.EnemyList = ListEnemy;
+        this.hasFled = j;
         EnemySnake anaconda = new EnemySnake("Anaconda", "Strangler Snake", "A strong strangler snake who fears nothing.", 5, 105, 50);
         EnemySnake cobra = new EnemySnake("Cobra", "Poisonous Snake", "A peaceful snake, but if you make him angry it will not be fun.", 10, 105, 55);
         EnemySnake python = new EnemySnake("Python", "Strangler Snake", "Python knows what he came for, and will strangle you.", 20, 105, 50);
@@ -115,6 +117,14 @@ public class HeroSnake {
         this.attack = attack;
     }
 
+    public boolean isHasFled() {
+        return hasFled;
+    }
+
+    public void setHasFled(boolean hasFled) {
+        this.hasFled = hasFled;
+    }
+
     public boolean checkHealth(){
         if(health > 0){
             return true;
@@ -126,6 +136,7 @@ public class HeroSnake {
 
     }
 
+    /*
     public void fightEnemy(EnemySnake e) {
         System.out.println("Herosnake: Good job! You just dealt " + attack + " damage to " + e.getName() + ", be careful he is very strong!");
         double newHealth = e.getHealth() -getAttack();
@@ -140,7 +151,6 @@ public class HeroSnake {
         System.out.println("Type m to continue the game.");
         String choose = sc.nextLine();
         if (choose.equals("m")) {
-
             System.out.println("Herosnake: Well done! You just dealt " + attack + " damage to an enemy snake, he is now weak!");
             double newHealth3 = e.getHealth() -getAttack();
             e.setHealth(newHealth3);
@@ -175,13 +185,27 @@ public class HeroSnake {
         if (e.getHealth() == (0)) {
             System.out.println("Great job! You killed the " + e.getName() + " You will now move onto the next enemy, which is chosen randomly.");
         }
-
-
-
-
         }
-
-
+*/
+        public void fightEnemy(EnemySnake e){
+            while(e.getHealth()>0 && getHealth()>0 && isHasFled()==false){
+                System.out.println("Attack the " + e.getName() +" by typing a or flee from the battle by typing f");
+                String input = sc.nextLine();
+                switch (input){
+                    case "a":
+                    double newHealth = e.getHealth() -getAttack();
+                    e.setHealth(newHealth);
+                    double newHealth2 = getHealth() - e.getAttack();
+                    setHealth(newHealth2);
+                    System.out.println("You dealt " + getAttack() + " damage to " + e.getName() + "\nYou receive " + e.getAttack() + " damage in return\nYour health is now at " + getHealth() + "\nEnemys health is at " + e.getHealth());
+                    break;
+                    case "f":
+                        System.out.println("You fled the battle like a coward");
+                        setHasFled(true);
+                        break;
+                }
+            }
+        }
 
 
 
