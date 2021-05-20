@@ -1,15 +1,16 @@
+import java.util.Random;
 public class EnemySnake {
+    private Random r = new Random();
     private String name,type,story;
     private int age;
-    private double health,attack;
+    private double health;
 
-    public EnemySnake(String n,String t,String s,int a,double h,double att){
+    public EnemySnake(String n, String t, String s, int a, double h){
         this.name = n;
         this.type = t;
         this.story = s;
         this.age = a;
         this.health = h;
-        this.attack = att;
     }
 
 
@@ -51,19 +52,23 @@ public class EnemySnake {
 
     public void setHealth(double health) {
         this.health = health;
+        if (this.health < 0){
+            this.health = 0;
+        }
     }
 
     public double getAttack() {
-        return attack;
+        int attack = r.nextInt();
+        if (attack < 0){
+            attack = -attack;
+        }
+        return 30 + (attack % 30);
     }
 
-    public void setAttack(double attack) {
-        this.attack = attack;
-    }
 
     @Override
     public String toString(){
-        return "Enemy name: " + name+"\nEnemy type: " + type+"\nEnemy story: " + story+"\nEnemy age: " + age+"\nEnemy health: " + health+"\nEnemy attack: " + attack;
+        return "Enemy name: " + name+"\nEnemy type: " + type+"\nEnemy story: " + story+"\nEnemy age: " + age+"\nEnemy health: " + health;
     }
 
 }

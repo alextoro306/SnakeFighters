@@ -1,6 +1,3 @@
-
-import org.w3c.dom.ls.LSOutput;
-
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -13,23 +10,22 @@ public class HeroSnake {
     private EnemySnake e;
     private String name, type, story;
     private int age;
-    private double health, attack;
+    private double health;
     private boolean hasFled;
 
 
-    public HeroSnake(String n, String t, String s, int a, double h, double att, ArrayList<EnemySnake> ListEnemy, boolean j) {
+    public HeroSnake(String n, String t, String s, int a, double h, ArrayList<EnemySnake> ListEnemy, boolean j) {
         this.name = n;
         this.type = t;
         this.story = s;
         this.age = a;
         this.health = h;
-        this.attack = att;
         this.EnemyList = ListEnemy;
         this.hasFled = j;
-        EnemySnake anaconda = new EnemySnake("Anaconda", "Strangler Snake", "A strong strangler snake who fears nothing.", 5, 105, 50);
-        EnemySnake cobra = new EnemySnake("Cobra", "Poisonous Snake", "A peaceful snake, but if you make him angry it will not be fun.", 10, 105, 55);
-        EnemySnake python = new EnemySnake("Python", "Strangler Snake", "Python knows what he came for, and will strangle you.", 20, 105, 50);
-        EnemySnake mamba = new EnemySnake("Mamba", "Poisonous Snake", "Mamba will destroy enemy after enemy, and only leaves a mark.", 9, 105, 45);
+        EnemySnake anaconda = new EnemySnake("Anaconda", "Strangler Snake", "A strong strangler snake who fears nothing.", 5, 409);
+        EnemySnake cobra = new EnemySnake("Cobra", "Poisonous Snake", "A peaceful snake, but if you make him angry it will not be fun.", 10, 409);
+        EnemySnake python = new EnemySnake("Python", "Strangler Snake", "Python knows what he came for, and will strangle you.", 20, 409);
+        EnemySnake mamba = new EnemySnake("Mamba", "Poisonous Snake", "Mamba will destroy enemy after enemy, and only leaves a mark.", 9, 409);
         EnemyList.add(anaconda);
         EnemyList.add(cobra);
         EnemyList.add(python);
@@ -56,9 +52,12 @@ public class HeroSnake {
         return e;
     }
 
-
     public int getListSize(ArrayList EnemyList) {
         return EnemyList.size();
+    }
+
+    public int getSizeList(ArrayList RandomDamage) {
+        return  RandomDamage.size();
     }
 
     public void removeSnake(int n) {
@@ -107,14 +106,17 @@ public class HeroSnake {
 
     public void setHealth(double health) {
         this.health = health;
+        if (this.health < 0) {
+            this.health = 0;
+        }
     }
 
     public double getAttack() {
-        return attack;
-    }
-
-    public void setAttack(double attack) {
-        this.attack = attack;
+        int attack = r.nextInt();
+        if (attack < 0){
+            attack = -attack;
+        }
+        return 30 + (attack % 30);
     }
 
     public boolean isHasFled() {
@@ -187,32 +189,44 @@ public class HeroSnake {
         }
         }
 */
-        public void fightEnemy(EnemySnake e){
+        public boolean fightEnemy(EnemySnake e){
             while(e.getHealth()>0 && getHealth()>0 && isHasFled()==false){
                 System.out.println("Attack the " + e.getName() +" by typing a or flee from the battle by typing f");
                 String input = sc.nextLine();
                 switch (input){
                     case "a":
-                    double newHealth = e.getHealth() -getAttack();
+                        double ownAttack = getAttack();
+                        double enemyAttack = e.getAttack();
+                    double newHealth = e.getHealth() - ownAttack;
                     e.setHealth(newHealth);
-                    double newHealth2 = getHealth() - e.getAttack();
-                    setHealth(newHealth2);
-                    System.out.println("You dealt " + getAttack() + " damage to " + e.getName() + "\nYou receive " + e.getAttack() + " damage in return\nYour health is now at " + getHealth() + "\nEnemys health is at " + e.getHealth());
+                    double enemyHealth = getHealth() - enemyAttack;
+                    setHealth(enemyHealth);
+                    if (getHealth() == 0){
+                        System.out.println("You died");
+                        return false;
+                    }
+                    if (e.getHealth() == 0) {
+                        System.out.println("The " + e.getName() + " died");
+                        return true;
+                    }
+                    System.out.println("You dealt " + ownAttack + " damage to " + e.getName() + "\nYou receive " + enemyAttack + " damage in return\nYour health is now at " + getHealth() + "\n" + e.getName() + "'s health is at " + e.getHealth());
                     break;
                     case "f":
                         System.out.println("You fled the battle like a coward");
                         setHasFled(true);
-                        break;
+                        return true;
                 }
             }
+            return false;
         }
+
 
 
 
 
         @Override
         public String toString(){
-            return "Hero name: " + name + "\nHero type: " + type + "\nHero story: " + story + "\nHero age: " + age + "\nHero health: " + health + "\nHero attack: " + attack;
+            return "Hero name: " + name + "\nHero type: " + type + "\nHero story: " + story + "\nHero age: " + age + "\nHero health: " + health + "\nHero attack: ";
         }
 
     }
