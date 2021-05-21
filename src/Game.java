@@ -1,5 +1,4 @@
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Random;
@@ -11,7 +10,7 @@ public class Game {
         ArrayList<EnemySnake> list = new ArrayList<>();
         ArrayList<EnemySnake> EnemyList = new ArrayList<>();
         EnemySnake kingsnake = new EnemySnake("KingSnake", "Mind Control Snake", "The kingsnake is the king of all snakes and has won every fight in its lifetime.", 100, 409);
-        HeroSnake hero = new HeroSnake("HeroSnake", "Snake", "He is an experienced fighter. and can beat almost any enemy.", 18, 419, list, false);
+        HeroSnake hero = new HeroSnake("HeroSnake", "Snake", "He is an experienced fighter. and can beat almost any enemy.", 18, 439, list, false);
         System.out.println("__          __  _                                 _              _____             _        ______ _       _     _                \n" +
                 "\\ \\        / / | |                               | |            / ____|           | |      |  ____(_)     | |   | |               \n" +
                 " \\ \\  /\\  / /__| | ___ ___  _ __ ___   ___ ______| |_ ___ _____| (___  _ __   __ _| | _____| |__   _  __ _| |__ | |_ ___ _ __ ___ \n" +
@@ -24,7 +23,7 @@ public class Game {
 
             int enemiesKilled = 0;
             while (hero.getHealth() > 0 && enemiesKilled != 4) {
-                System.out.println("Type s to start.");
+                System.out.println("Type any letter to start.");
                 String push = sc.nextLine();
                 int random = r.nextInt(hero.getListSize(hero.EnemyList));
                 EnemySnake e1 = hero.getREnemy(random);
@@ -32,7 +31,7 @@ public class Game {
                 System.out.println("Press h to hear the story, press any other button to continue without a story.");
                 String jos = sc.nextLine();
                 if (jos.equals("h")){
-                    System.out.println("The snakes farted a lot");
+                    System.out.println("The Herosnake was kicked out of his snake herd as a child, and want's bloody revenge for the other snakes.\nHe will show to them that it was not worth kicking him out.");
                     System.out.println();
                 }else{
                     if (push.equals("s")) {
@@ -79,7 +78,7 @@ public class Game {
                 EnemySnake e2 = hero.getREnemy(random2);
                 hero.removeSnake(random2);
                 hero.setHasFled(false);
-                hero.setHealth(419);
+                hero.setHealth(439);
                 System.out.println();
                 System.out.println("You drank a health potion, and regained all of your " + hero.getHealth() + " health.\n");
                 System.out.println("Type x, to choose the next enemy.");
@@ -107,7 +106,7 @@ public class Game {
                 EnemySnake e3 = hero.getREnemy(random3);
                 hero.removeSnake(random3);
                 hero.setHasFled(false);
-                hero.setHealth(419);
+                hero.setHealth(439);
                 System.out.println();
                 System.out.println("You drank a health potion, and regained all of your " + hero.getHealth() + " health.\n");
                 System.out.println("Type z, to choose the next enemy.");
@@ -135,7 +134,7 @@ public class Game {
                 EnemySnake e4 = hero.getREnemy(random4);
                 hero.removeSnake(random4);
                 hero.setHasFled(false);
-                hero.setHealth(419);
+                hero.setHealth(439);
                 System.out.println();
                 System.out.println("You drank a health potion, and regained all of your " + hero.getHealth() + " health.\n");
                 System.out.println("Type q, to choose the next enemy.");
@@ -169,7 +168,7 @@ public class Game {
             System.out.println("Here is your final boss stats:\n" + kingsnake);
             System.out.println("");
             hero.setHasFled(false);
-            hero.setHealth(419);
+            hero.setHealth(439);
             System.out.println();
             System.out.println("You drank a health potion, and regained all of your " + hero.getHealth() + " health.\n");
             hero.fightEnemy(kingsnake);
@@ -181,7 +180,6 @@ public class Game {
         }
 
         System.out.println("Thanks for playing our game (SnakeFighters) \nHave a nice day -Olavi -Alex");
-        System.out.println("Game over!");
     }
 
 
