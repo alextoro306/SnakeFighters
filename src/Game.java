@@ -1,4 +1,5 @@
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Random;
@@ -28,11 +29,18 @@ public class Game {
                 int random = r.nextInt(hero.getListSize(hero.EnemyList));
                 EnemySnake e1 = hero.getREnemy(random);
                 hero.removeSnake(random);
-                if (push.equals("s")) {
-                    System.out.println("You will now randomly choose an enemy.");
-                } else {
-                    System.out.println("You did not type s, try again.");
-                    run();
+                System.out.println("Press h to hear the story, press any other button to continue without a story.");
+                String jos = sc.nextLine();
+                if (jos.equals("h")){
+                    System.out.println("The snakes farted a lot");
+                    System.out.println();
+                }else{
+                    if (push.equals("s")) {
+                        System.out.println("You will now randomly choose an enemy.");
+                    } else {
+                        System.out.println("You did not type s, try again.");
+                        run();
+                }
                 }
                 System.out.println("Type c to randomly choose an enemy.");
                 String choose = sc.nextLine();
@@ -91,6 +99,9 @@ public class Game {
                         }
                     }
                     enemiesKilled++;
+                }else{
+                    System.out.println("You did not press a, restart.");
+                    run();
                 }
                 int random3 = r.nextInt(hero.getListSize(hero.EnemyList));
                 EnemySnake e3 = hero.getREnemy(random3);
@@ -116,6 +127,9 @@ public class Game {
                         }
                     }
                     enemiesKilled++;
+                }else{
+                    System.out.println("You did not press a, restart.");
+                    run();
                 }
                 int random4 = r.nextInt(hero.getListSize(hero.EnemyList));
                 EnemySnake e4 = hero.getREnemy(random4);
@@ -141,6 +155,9 @@ public class Game {
                         }
                     }
                     enemiesKilled++;
+                }else{
+                    System.out.println("You did not press a, restart.");
+                    run();
                 }
             }
 
@@ -158,6 +175,9 @@ public class Game {
             hero.fightEnemy(kingsnake);
             System.out.println("");
 
+        }else{
+            System.out.println("You did not press a, restart.");
+            run();
         }
 
         System.out.println("Thanks for playing our game (SnakeFighters) \nHave a nice day -Olavi -Alex");
