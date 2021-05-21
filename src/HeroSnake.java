@@ -138,57 +138,6 @@ public class HeroSnake {
 
     }
 
-    /*
-    public void fightEnemy(EnemySnake e) {
-        System.out.println("Herosnake: Good job! You just dealt " + attack + " damage to " + e.getName() + ", be careful he is very strong!");
-        double newHealth = e.getHealth() -getAttack();
-        e.setHealth(newHealth);
-        System.out.println(e.getName() + ": " + e.getHealth() + " hp left");
-
-        System.out.println(e.getName() + ": Hahaha i am the shhh... " + e.getName() +" shhhh.. and i just attacked you!");
-        double newHealth2 = getHealth() - e.getAttack();
-        setHealth(newHealth2);
-        System.out.println("Hero snake: " + getHealth() + " hp left");
-
-        System.out.println("Type m to continue the game.");
-        String choose = sc.nextLine();
-        if (choose.equals("m")) {
-            System.out.println("Herosnake: Well done! You just dealt " + attack + " damage to an enemy snake, he is now weak!");
-            double newHealth3 = e.getHealth() -getAttack();
-            e.setHealth(newHealth3);
-            System.out.println(e.getName() + ": " + e.getHealth() + " hp left");
-
-            System.out.println(e.getName() + ": You are so noob shhh.. I dealt a lot of damage to you shhhh..., you are a dead snake!");
-            double newHealth4 = getHealth() - e.getAttack();
-            setHealth(newHealth4);
-            System.out.println("Hero snake: " + getHealth() + " hp left");
-
-        } else {
-            System.out.println("You did not type m, please try again.");
-        }
-
-        System.out.println("Type m again to continue the game.");
-        String choose2 = sc.nextLine();
-        if (choose2.equals("m")) {
-
-            System.out.println(e.getName() + ": Easy damage to you i will WIN shhhh..!");
-            double newHealth5 = getHealth() - e.getAttack();
-            setHealth(newHealth5);
-            System.out.println("Hero snake has now: " + getHealth() + " hp left");
-
-            System.out.println("Hero snake: Very good! You just dealt " + attack + " damage to an enemy snake, he is now VERY weak!");
-            double newHealth6 = e.getHealth() -getAttack();
-            e.setHealth(newHealth6);
-            System.out.println(e.getName() + ": " + e.getHealth() + " hp left");
-
-        } else {
-            System.out.println("You did not type m, please try again.");
-        }
-        if (e.getHealth() == (0)) {
-            System.out.println("Great job! You killed the " + e.getName() + " You will now move onto the next enemy, which is chosen randomly.");
-        }
-        }
-*/
         public boolean fightEnemy(EnemySnake e){
             while(e.getHealth()>0 && getHealth()>0 && isHasFled()==false){
                 System.out.println("Attack the " + e.getName() +" by typing a or flee from the battle by typing f");
@@ -202,7 +151,7 @@ public class HeroSnake {
                     double enemyHealth = getHealth() - enemyAttack;
                     setHealth(enemyHealth);
                     if (getHealth() == 0){
-                        System.out.println("You died");
+                        System.out.println("You died, we'll get em next time.");
                         return false;
                     }
                     if (e.getHealth() == 0) {
