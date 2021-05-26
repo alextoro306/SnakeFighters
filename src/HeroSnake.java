@@ -138,7 +138,7 @@ public class HeroSnake {
 
     }
 
-        public boolean fightEnemy(EnemySnake e){
+        public boolean fightEnemy(EnemySnake e, boolean canUseHealth){
             while(e.getHealth()>0 && getHealth()>0 && isHasFled()==false){
                 System.out.println("Attack the " + e.getName() +" by typing a or flee from the battle by typing f");
                 String input = sc.nextLine();
@@ -159,6 +159,13 @@ public class HeroSnake {
                         return true;
                     }
                     System.out.println("You dealt " + ownAttack + " damage to " + e.getName() + "\nYou receive " + enemyAttack + " damage in return\nYour health is now at " + getHealth() + "\n" + e.getName() + "'s health is at " + e.getHealth());
+                    if(canUseHealth == true && getHealth() < 50){
+                        System.out.println("Type u to use a health potion");
+                        String typeu = sc.nextLine();
+                        if (typeu.equals("u")){
+                            setHealth(439);
+                        }
+                    }
                     break;
                     case "f":
                         System.out.println("You fled the battle like a coward");

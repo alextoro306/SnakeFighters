@@ -62,7 +62,7 @@ public class EnemySnake {
         if (attack < 0){
             attack = -attack;
         }
-        return 30 + (attack % 30);
+        return 30 + (attack % 23);
     }
 
 
