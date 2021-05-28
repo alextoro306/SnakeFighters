@@ -82,7 +82,7 @@ public class Game {
                 case 0:
                     break;
                 case 1:
-                    System.out.println("You won the kingsnake, congrats!");
+                    System.out.println("You won the kingsnake, congratulations!");
                     System.out.println("Thanks for playing our game (SnakeFighters) \nHave a nice day -Olavi -Alex");
                     break;
             }
