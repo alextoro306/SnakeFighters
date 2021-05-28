@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Random;
@@ -24,6 +23,7 @@ public class Game {
                 "                                                                                                      __/ |                       \n" +
                 "                                                                                                     |___/   ");
 
+        System.out.println("In order to complete the game, you have to kill all the snakes, fleeing will result in a loss.\n");
         String jos = askPlayerInput("Press h to hear the story, press any other button to continue without a story.");
         if (jos.equals("h")) {
             System.out.println("The Herosnake was kicked out of his snake herd as a child, and want's bloody revenge for the other snakes.\nHe will show to them that it was not worth kicking him out.");
@@ -31,8 +31,10 @@ public class Game {
 
         }
         int enemiesKilled = 0;
+        int enemiesFLed = 0;
+        int fightsFought = 0;
         EnemySnake enemySnake = null;
-        while (hero.getHealth() > 0 && enemiesKilled != 4) {
+        while (hero.getHealth() > 0 && fightsFought < 4) {
             String choose = askPlayerInput("Type c to randomly choose an enemy.");
             int random = r.nextInt(hero.getListSize(hero.EnemyList));
             enemySnake = hero.getREnemy(random);
@@ -44,26 +46,49 @@ public class Game {
                 System.out.println("You did not type c, try again.");
                 run();
             }
-            boolean continueGame;
-            continueGame = hero.fightEnemy(enemySnake, false);
-            if (continueGame == false) {
-                String rstart = askPlayerInput("Press any button to restart.");
-                run();
+            int fightOutcome;
+            fightOutcome = hero.fightEnemy(enemySnake, false, true);
+            fightsFought++;
+            switch (fightOutcome) {
+                case 0:
+                    String rstart = askPlayerInput("Press any button to restart.");
+                    run();
+                    break;
+                case 1:
+                    enemiesKilled++;
+                    break;
+                case 2:
+                    enemiesFLed++;
+                    break;
             }
+
             hero.setHasFled(false);
             hero.setHealth(439);
             System.out.println("You drank a health potion, and regained all of your " + hero.getHealth() + " health.");
-            enemiesKilled++;
+
+        }
+        if(enemiesKilled < 4){
+            askPlayerInput("You cannot flee any snakes if you want to fight the final boss, try again.\nType any letter to restart");
+            run();
 
         }
         String userInput = askPlayerInput("Type f, to take on the final boss!");
         if (userInput.equals("f")) {
             System.out.println("Here is your final boss stats:\n" + kingsnake);
-            System.out.println("");
+            System.out.println();
             hero.setHasFled(false);
-            hero.fightEnemy(kingsnake, true);
-            System.out.println("");
-            System.out.println("Thanks for playing our game (SnakeFighters) \nHave a nice day -Olavi -Alex");
+            int fightOutcome = hero.fightEnemy(kingsnake, true, false);
+            switch (fightOutcome) {
+                case 0:
+                    break;
+                case 1:
+                    System.out.println("You won the kingsnake, congrats!");
+                    System.out.println("Thanks for playing our game (SnakeFighters) \nHave a nice day -Olavi -Alex");
+                    break;
+            }
+        }else{
+            System.out.println("You didn't take on the final boss, what a *****!");
+            run();
         }
     }
 }

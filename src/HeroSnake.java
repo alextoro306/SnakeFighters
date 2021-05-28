@@ -22,10 +22,10 @@ public class HeroSnake {
         this.health = h;
         this.EnemyList = ListEnemy;
         this.hasFled = j;
-        EnemySnake anaconda = new EnemySnake("Anaconda", "Strangler Snake", "A strong strangler snake who fears nothing.", 5, 394);
-        EnemySnake cobra = new EnemySnake("Cobra", "Poisonous Snake", "A peaceful snake, but if you make him angry it will not be fun.", 10, 387);
-        EnemySnake python = new EnemySnake("Python", "Strangler Snake", "Python knows what he came for, and will strangle you.", 20, 400);
-        EnemySnake mamba = new EnemySnake("Mamba", "Poisonous Snake", "Mamba will destroy enemy after enemy, and only leaves a mark.", 9, 399);
+        EnemySnake anaconda = new EnemySnake("Anaconda", "Strangler Snake", "A strong strangler snake who fears nothing.", 5, 379);
+        EnemySnake cobra = new EnemySnake("Cobra", "Poisonous Snake", "A peaceful snake, but if you make him angry it will not be fun.", 10, 402);
+        EnemySnake python = new EnemySnake("Python", "Strangler Snake", "Python knows what he came for, and will strangle you.", 20, 399);
+        EnemySnake mamba = new EnemySnake("Mamba", "Poisonous Snake", "Mamba will destroy enemy after enemy, and only leaves a mark.", 9, 395);
         EnemyList.add(anaconda);
         EnemyList.add(cobra);
         EnemyList.add(python);
@@ -123,6 +123,7 @@ public class HeroSnake {
         return hasFled;
     }
 
+
     public void setHasFled(boolean hasFled) {
         this.hasFled = hasFled;
     }
@@ -138,7 +139,7 @@ public class HeroSnake {
 
     }
 
-        public boolean fightEnemy(EnemySnake e, boolean canUseHealth){
+        public int fightEnemy(EnemySnake e, boolean canUseHealth, boolean canFLeeFight){
             while(e.getHealth()>0 && getHealth()>0 && isHasFled()==false){
                 System.out.println("Attack the " + e.getName() +" by typing a or flee from the battle by typing f");
                 String input = sc.nextLine();
@@ -152,28 +153,37 @@ public class HeroSnake {
                     setHealth(enemyHealth);
                     if (getHealth() == 0){
                         System.out.println("You died, we'll get em next time.");
-                        return false;
+                        return 0;
                     }
                     if (e.getHealth() == 0) {
                         System.out.println("The " + e.getName() + " died");
-                        return true;
+                        return 1;
                     }
                     System.out.println("You dealt " + ownAttack + " damage to " + e.getName() + "\nYou receive " + enemyAttack + " damage in return\nYour health is now at " + getHealth() + "\n" + e.getName() + "'s health is at " + e.getHealth());
                     if(canUseHealth == true && getHealth() < 50){
+                        System.out.println("You are low hp! Use a health potion now!");
                         System.out.println("Type u to use a health potion");
                         String typeu = sc.nextLine();
                         if (typeu.equals("u")){
                             setHealth(439);
+                            System.out.println("You drank a health potion and regained all your 439 health, go beat the boss!");
+                        }else{
+                            System.out.println("You might die soon because you didn't take a health potion! But you can,");
+
                         }
                     }
                     break;
                     case "f":
-                        System.out.println("You fled the battle like a coward");
-                        setHasFled(true);
-                        return true;
+                        if(canFLeeFight){
+                            System.out.println("You fled the battle like a coward");
+                            setHasFled(true);
+                            return 2;
+                        }else{
+                            System.out.println("You can't flee this fight!");
+                        }
                 }
             }
-            return false;
+            return 3;
         }
 
 
