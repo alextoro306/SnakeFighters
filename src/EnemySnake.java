@@ -5,6 +5,7 @@ public class EnemySnake {
     private int age;
     private double health;
 
+    //Tässä on annettu namelle ja typelle omat kirjain tunnukset jolla ne tunnistetaan
     public EnemySnake(String n, String t, String s, int a, double h){
         this.name = n;
         this.type = t;
@@ -12,8 +13,7 @@ public class EnemySnake {
         this.age = a;
         this.health = h;
     }
-
-
+    //Tässä on get ja set metodit jotka hakee tiedot esim nimen ja iän
     public String getName() {
         return name;
     }
@@ -45,18 +45,18 @@ public class EnemySnake {
     public void setAge(int age) {
         this.age = age;
     }
-
+    //Tässä getataan vihollisen health
     public double getHealth() {
         return health;
     }
-
+    //Tässä annetaan vihollisen health
     public void setHealth(double health) {
         this.health = health;
         if (this.health < 0){
             this.health = 0;
         }
     }
-
+    //Tässä on annettu vihollisen attack arvo eli 30damagea + 1-24 väliltä randomilla lisä damagea
     public double getAttack() {
         int attack = r.nextInt();
         if (attack < 0){
@@ -64,8 +64,7 @@ public class EnemySnake {
         }
         return 30 + (attack % 24);
     }
-
-
+    //Tässä on override metodi jossa luodaan lista niin sanotusti ja siinä kerrotaan vihollisen statsit eli enemy name + name eli käärmeen nimi esimerkiksi
     @Override
     public String toString(){
         return "Enemy name: " + name+"\nEnemy type: " + type+"\nEnemy story: " + story+"\nEnemy age: " + age+"\nEnemy health: " + health;

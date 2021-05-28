@@ -4,3 +4,4 @@ public class Main {
         p.run();
     }
 }
+//Tämä luokka on main luokka jossa runataan koko peli

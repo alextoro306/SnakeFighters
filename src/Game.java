@@ -4,11 +4,13 @@ import java.util.Random;
 public class Game {
     Random r = new Random();
     Scanner sc = new Scanner(System.in);
-
+    //lyhentää skannerin käyttöä vaativia koodi rivejä
     public String askPlayerInput(String message){
         System.out.println(message);
         return sc.nextLine();
     }
+    //täällä on annettu king snakelle ja herosnakelle omat arvot kuten hp ja attack damage
+    //myös soutilla on tehty meille hieno welcome to snakefighters teksti
     public void run() {
         ArrayList<EnemySnake> list = new ArrayList<>();
         ArrayList<EnemySnake> EnemyList = new ArrayList<>();
@@ -22,7 +24,7 @@ public class Game {
                 "    \\/  \\/ \\___|_|\\___\\___/|_| |_| |_|\\___|       \\__\\___/     |_____/|_| |_|\\__,_|_|\\_\\___|_|    |_|\\__, |_| |_|\\__\\___|_|  |___/\n" +
                 "                                                                                                      __/ |                       \n" +
                 "                                                                                                     |___/   ");
-
+        //täällä on tehty peliin hyvät käskyt esimerkiksi paina h kirjainta kuulemalla storyn
         System.out.println("In order to complete the game, you have to kill all the snakes, fleeing will result in a loss.\n");
         String jos = askPlayerInput("Press h to hear the story, press any other button to continue without a story.");
         if (jos.equals("h")) {
@@ -30,6 +32,7 @@ public class Game {
             System.out.println();
 
         }
+        //fight metodin toinen osa
         int enemiesKilled = 0;
         int enemiesFLed = 0;
         int fightsFought = 0;
@@ -61,17 +64,19 @@ public class Game {
                     enemiesFLed++;
                     break;
             }
-
+            //tässä on annettu health potionille oma hp arvo paljon se antaa lisää healthia takaisin
             hero.setHasFled(false);
             hero.setHealth(439);
             System.out.println("You drank a health potion, and regained all of your " + hero.getHealth() + " health.");
 
         }
+        //tarkistaa onko taistelun lopuksi paettu mitään käärmettä
         if(enemiesKilled < 4){
             askPlayerInput("You cannot flee any snakes if you want to fight the final boss, try again.\nType any letter to restart");
             run();
 
         }
+        //kingsnaken loppufight metodi ja pelin loppu creditit
         String userInput = askPlayerInput("Type f, to take on the final boss!");
         if (userInput.equals("f")) {
             System.out.println("Here is your final boss stats:\n" + kingsnake);

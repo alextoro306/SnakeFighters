@@ -13,8 +13,10 @@ public class HeroSnake {
     private double health;
     private boolean hasFled;
 
-
-    public HeroSnake(String n, String t, String s, int a, double h, ArrayList<EnemySnake> ListEnemy, boolean j) {
+    //Tässä on annettu namelle ja typelle omat kirjain tunnukset jolla ne tunnistetaan
+    //Tässä on myös annettu arvot enemysnakelle kuten attack ja health
+    //myös enemyt on addattu listaan
+        public HeroSnake(String n, String t, String s, int a, double h, ArrayList<EnemySnake> ListEnemy, boolean j) {
         this.name = n;
         this.type = t;
         this.story = s;
@@ -32,7 +34,7 @@ public class HeroSnake {
         EnemyList.add(mamba);
 
     }
-
+    //Tässä haetaan enemy listasta switch casella
     public EnemySnake getREnemy(int i) {
         switch (i){
             case 0:
@@ -51,7 +53,7 @@ public class HeroSnake {
         }
         return e;
     }
-
+    //Tässä on esim get set metodit jotka hakee tiedot toisesta luokasta
     public int getListSize(ArrayList EnemyList) {
         return EnemyList.size();
     }
@@ -99,18 +101,18 @@ public class HeroSnake {
     public void setAge(int age) {
         this.age = age;
     }
-
+    //Tässä getataan herosnaken health
     public double getHealth() {
         return health;
     }
-
+    //Tässä annetaan herosnaken health
     public void setHealth(double health) {
         this.health = health;
         if (this.health < 0) {
             this.health = 0;
         }
     }
-
+    //Tässä on annettu herosnaken attack arvo eli 30damagea + 1-30 väliltä randomilla lisä damagea
     public double getAttack() {
         int attack = r.nextInt();
         if (attack < 0){
@@ -118,16 +120,15 @@ public class HeroSnake {
         }
         return 30 + (attack % 30);
     }
-
+    //tässä on pako metodi jolla voi paeta tappelusta
     public boolean isHasFled() {
         return hasFled;
     }
-
-
+    //tässä on pako metodi jolla voi paeta tappelusta
     public void setHasFled(boolean hasFled) {
         this.hasFled = hasFled;
     }
-
+    //Tässä on laitettu että jos hp on isompi kuin 0 niin peli jatkuu
     public boolean checkHealth(){
         if(health > 0){
             return true;
@@ -135,10 +136,9 @@ public class HeroSnake {
         }else{
             return false;
         }
-
-
     }
-
+        //Tässä on koko fight metodi eli taistelu ja siihen on lisätty siihen kuuluvat toiminnallisuudet
+        //käytetty esim while looppia ja switch casea ja myös if elseä
         public int fightEnemy(EnemySnake e, boolean canUseHealth, boolean canFLeeFight){
             while(e.getHealth()>0 && getHealth()>0 && isHasFled()==false){
                 System.out.println("Attack the " + e.getName() +" by typing a or flee from the battle by typing f");
@@ -169,7 +169,6 @@ public class HeroSnake {
                             System.out.println("You drank a health potion and regained all your 439 health, go beat the boss!");
                         }else{
                             System.out.println("You might die soon because you didn't take a health potion! But you can,");
-
                         }
                     }
                     break;
@@ -185,11 +184,7 @@ public class HeroSnake {
             }
             return 3;
         }
-
-
-
-
-
+        //Tässä on override metodi jossa luodaan lista niin sanotusti ja siinä kerrotaan herosnaken statsit eli hero name + name eli käärmeen nimi esimerkiksi
         @Override
         public String toString(){
             return "Hero name: " + name + "\nHero type: " + type + "\nHero story: " + story + "\nHero age: " + age + "\nHero health: " + health + "\nHero attack: ";
